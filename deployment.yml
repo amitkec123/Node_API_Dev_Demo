@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-rest-shop
+  labels:
+    app: nodeshop
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nodeshop
+  template:
+    metadata:
+      labels:
+        app: nodeshop
+    spec:
+      containers:
+      - name: nodeshop
+        image: amitkecian/node-rest-shop:1.0
+        ports:
+        - containerPort: 3000
